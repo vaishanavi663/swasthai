@@ -1,46 +1,29 @@
-# SwasthAI — Frontend
+# SwasthAI
 
-A modern React + Vite frontend for SwasthAI: an AI-assisted personal and city health intelligence dashboard.
+A modern React + Vite frontend for **SwasthAI**, an AI-assisted personal and city health intelligence platform.
 
-This README covers prerequisites, installation, development, build and deployment tips, project structure, common troubleshooting steps, and contribution guidance.
-
----
-
-## Table of contents
-
-- Project overview
-- Prerequisites
-- Quick start (install & run)
-- Available scripts
-- Project structure
-- Styling & theming
-- Troubleshooting
-- Contributing
-- License
+This project includes a public landing experience and an authenticated dashboard offering AI chat, symptom analysis, mental wellbeing tools, and city health intelligence features.
 
 ---
 
-## Project overview
+## 🚀 Tech Stack
 
-SwasthAI is a single-page frontend built with React, TypeScript and Vite. It provides a public landing site and an authenticated app area that includes features such as AI chat, symptom scanning, mental wellbeing tools, and city intelligence dashboards.
-
-Core technologies
-
-- Vite — fast dev server & build tooling
-- React + React Router — UI and routing
-- TypeScript — static types
-- Tailwind CSS — utility-first styling
-- Framer Motion — animations
-- Radix UI primitives and custom components
+- **Vite** — Fast development server and optimized production builds  
+- **React** — Component-based UI library  
+- **TypeScript** — Static typing for safer, scalable code  
+- **React Router** — Client-side routing  
+- **Tailwind CSS** — Utility-first styling system  
+- **Framer Motion** — Animations and transitions  
+- **Radix UI** — Accessible UI primitives  
 
 ---
 
-## Prerequisites
+## 📦 Prerequisites
 
-Install the following on your machine before working with the project:
+Make sure the following are installed on your system:
 
-- Node.js (LTS recommended; Node 18/20 tested)
-- npm (comes with Node) — or use `pnpm`/`yarn` if you prefer (commands below use `npm`)
+- **Node.js** (LTS recommended — Node 18 or 20 tested)
+- **npm** (comes with Node)
 
 Verify installation:
 
@@ -51,92 +34,159 @@ npm -v
 
 ---
 
-## Quick start
+## ⚙️ Installation & Setup
 
-1. Clone the repository:
+### 1. Clone the Repository
 
 ```bash
-git clone <repo-url>
+git clone <repository-url>
 cd swasthai
 ```
 
-2. Install dependencies:
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-3. Start the development server (Vite):
+### 3. Start Development Server
 
 ```bash
 npm run dev
 ```
 
-4. Open the app in your browser at the address printed by Vite (commonly `http://localhost:5173` or similar).
+The app will run locally at:
 
-Notes
+```
+http://localhost:5173
+```
 
-- If you use `pnpm` or `yarn`, replace `npm install` and `npm run` with the appropriate commands.
-- If you run into dependency resolution issues, remove `node_modules` and lockfile then reinstall:
+(Port may vary depending on availability.)
+
+---
+
+## 📜 Available Scripts
+
+The following scripts are defined in `package.json`:
+
+| Command | Description |
+|----------|------------|
+| `npm run dev` | Starts Vite development server with HMR |
+| `npm run build` | Builds the app for production (`tsc -b && vite build`) |
+| `npm run preview` | Previews the production build locally |
+| `npm run lint` | Runs ESLint across the project |
+
+---
+
+## 🗂️ Project Structure
+
+```
+swasthai/
+│
+├── index.html
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+│
+└── src/
+    ├── main.tsx
+    ├── styles/
+    │   ├── index.css
+    │   └── theme.css
+    │
+    └── app/
+        ├── App.tsx
+        ├── routes.tsx
+        │
+        ├── pages/
+        │   ├── Landing.tsx
+        │   ├── Login.tsx
+        │   ├── Signup.tsx
+        │   └── app/
+        │       ├── Dashboard.tsx
+        │       ├── AIChat.tsx
+        │       ├── SymptomScanner.tsx
+        │       └── CityIntelligence.tsx
+        │
+        └── components/
+            ├── GlassCard.tsx
+            ├── PrimaryButton.tsx
+            └── fig/
+                └── ui/
+```
+
+### Key Files
+
+- `index.html` — Root HTML file for Vite  
+- `src/main.tsx` — React application entry point  
+- `src/app/App.tsx` — Global layout and root wrapper  
+- `src/app/routes.tsx` — Route configuration  
+- `src/app/pages/` — Page-level components  
+- `src/app/components/` — Shared UI components  
+- `src/styles/` — Global styles and Tailwind configuration  
+
+---
+
+## 🎨 Styling & Theming
+
+- Tailwind CSS is used with a custom theme configuration.
+- Global styles are defined in `src/styles/index.css`.
+- Custom theme tokens are defined in `src/styles/theme.css`.
+- Restart the dev server if Tailwind config changes are made.
+
+---
+
+## 🌐 Deployment
+
+To generate a production build:
 
 ```bash
-rm -rf node_modules package-lock.json
-npm install
+npm run build
+```
+
+The optimized build will be generated inside the `dist/` directory.
+
+You can deploy the `dist/` folder to:
+
+- Vercel  
+- Netlify  
+- Firebase Hosting  
+- Any static hosting provider  
+
+For previewing the production build locally:
+
+```bash
+npm run preview
 ```
 
 ---
 
-## Available scripts
+## 🤝 Contributing
 
-Scripts are defined in `package.json` and are used during development and release:
+1. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
 
-- `npm run dev` — start Vite dev server with HMR
-- `npm run build` — build the app for production (the project runs `tsc -b && vite build`)
-- `npm run preview` — locally preview the production build
-- `npm run lint` — run ESLint across the codebase
+2. Make your changes and commit:
+   ```bash
+   git commit -m "Add: short meaningful commit message"
+   ```
 
-Use the exact commands from `package.json` to avoid surprises.
+3. Push your branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
 
----
+4. Open a Pull Request for review.
 
-## Project structure (important files)
-
-- `index.html` — Vite entry file
-- `src/main.tsx` — React entry and global providers
-- `src/app/App.tsx` — root app wrapper and global layout
-- `src/app/routes.tsx` — router and route definitions
-- `src/app/pages/` — page-level components (Landing, Login, Signup, app/*)
-- `src/app/components/` — shared components and primitives
-- `src/styles/` — Tailwind, theme and global CSS
-- `vite.config.ts` — Vite configuration
-- `package.json` — scripts and dependency definitions
-
-This project organizes UI primitives under `src/app/components/fig/ui/` and app-specific pages under `src/app/pages/app/`.
+Please ensure:
+- Code is formatted properly
+- No TypeScript errors
+- ESLint passes before submitting PRs
 
 ---
 
-## Styling & theming
+## 📄 License
 
-- Tailwind CSS is used with a custom theme file in `src/styles/theme.css`.
-- Styles are imported via `src/styles/index.css` and mounted in `src/main.tsx`.
-- If you change Tailwind config, restart the dev server to pick up PostCSS/Tailwind rebuilds.
-
----
-
-## Troubleshooting
-
-- Blank page on load:
-  - Open the browser console (F12) and check for runtime errors (missing imports, undefined variables).
-  - Confirm `#root` exists in `index.html` and `src/main.tsx` mounts React into it.
-  - Ensure your CSS imports don't accidentally hide the app (e.g., `height` or `display` rules on the root element).
-
-- Dev server fails to start / dependency errors:
-  - Delete `node_modules` + lockfile and reinstall.
-  - Ensure Node version is compatible.
-  - Run `npm ci` if you want a clean reproducible install using lockfile.
-
-- TypeScript / build errors during `npm run build`:
-  - Run `tsc -b` to see TypeScript errors. Fix types or update `tsconfig` as needed.
-
-- CSS/Tailwind not updated after changes:
-  - Stop and restart `npm run dev` to ensure Vite picks up Tailwind config changes.
+This project is currently private and maintained by the SwasthAI team.
