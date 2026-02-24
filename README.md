@@ -140,7 +140,3 @@ This project organizes UI primitives under `src/app/components/fig/ui/` and app-
 
 - CSS/Tailwind not updated after changes:
   - Stop and restart `npm run dev` to ensure Vite picks up Tailwind config changes.
-
-If you hit a problem not covered here, paste logs from the terminal and browser console and I can help debug.
-
----
